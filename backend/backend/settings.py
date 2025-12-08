@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
 
     # Project apps
-    "expenses",  # your app
+    "expenses",
 ]
 
 
@@ -98,7 +98,7 @@ TEMPLATES = [
 
 
 # ---------------------------------------------------------
-# DATABASE (Auto-detect DATABASE_URL, fallback to SQLite)
+# DATABASE
 # ---------------------------------------------------------
 
 DATABASES = {
@@ -115,18 +115,10 @@ DATABASES = {
 # ---------------------------------------------------------
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
-    },
-    {
-        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
-    },
+    {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
+    {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
+    {"NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"},
+    {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
 
@@ -141,12 +133,12 @@ USE_TZ = True
 
 
 # ---------------------------------------------------------
-# STATIC FILES (for deployment)
+# STATIC FILES — REQUIRED FOR DEPLOYMENT
 # ---------------------------------------------------------
 
 STATIC_URL = "/static/"
 
-# Must be a real filesystem path
+# MUST be an absolute filesystem path
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
